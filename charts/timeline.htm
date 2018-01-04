@@ -1,0 +1,201 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>Highcharts Example</title>
+
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<style type="text/css">
+
+body {
+    margin: 0px;
+}
+
+		</style>
+
+		<script type="text/javascript">
+
+var colors = ['#1f77b4','#aec7e8','#ff7f0e','#ffbb78','#2ca02c','#98df8a','#d62728','#ff9896','#9467bd','#c5b0d5','#8c564b','#c49c94','#e377c2','#f7b6d2','#7f7f7f','#c7c7c7','#bcbd22','#dbdb8d','#17becf','#9edae5']
+
+var timeline = [
+  [7.6,19.3],
+  [22.4,37.1],
+  [3,7.1],
+  [87,88.6],
+  [16.8,'NA'],
+  [7.9,6.9],
+  [9.4,5.1],
+  [75.1,'NA'],
+  [3.9,5.3],
+  [33.9,22.6],
+  [3.5,5.6],
+  [77.4,74.4],
+  [87.4,76.8],
+  [16.6,10.7],
+  [32.6,'NA'],
+  [6.7,'NA'],
+  [21,31.8],
+  [58.6,68.2],
+  [21.2,18.5]
+]
+
+$(function () {
+
+    Highcharts.setOptions({
+            lang: {
+                months: ['leden', 'únor', 'březen', 'duben', 'květen', 'červen', 'červenec', 'srpen', 'září', 'říjen', 'listopad', 'prosinec'],
+                weekdays: ['neděle', 'pondělí', 'úterý', 'středa', 'čtvrtek', 'pátek', 'sobota'],
+                shortMonths: ['leden', 'únor', 'březen', 'duben', 'květen', 'červen', 'červenec', 'srpen', 'září', 'říjen', 'listopad', 'prosinec'],
+                thousandsSep: '',
+                decimalPoint:',',
+                rangeSelectorZoom: 'Zobrazit'
+            }
+        });
+
+$(function () {
+    $('#container').highcharts({
+        chart: {
+            type: 'line'
+        },
+        title: {
+            text: 'Vedle koho byste nebydleli?'
+        },
+        subtitle: {
+            text: 'změna mezi roky 2005 a 2017'
+        },
+        xAxis: {
+            categories: ['2005', '2017']
+        },
+        yAxis: {
+            title: {
+                text: 'podíl odpovědí "nechci za souseda"'
+            },
+            labels: {
+                format: '{value} %'
+            },
+            min: 0
+        },
+        tooltip: {
+            formatter: function() {
+                if ((this.series.name == 'jiné náboženství') || (this.series.name == 'jiné politické přesvědčení')) {
+                    return this.x + ': <b>' + this.y + ' %</b> Čechů by u souseda vadilo <b>' + this.series.name + '</b>.'
+                } else if (this.series.name == 'jiná barva pleti') {
+                    return this.x + ': <b>' + this.y + ' %</b> Čechů by u souseda vadila <b>' + this.series.name + '</b>.'
+                } else if ((this.series.name == 'cizinec') || (this.series.name == 'alkoholik') || (this.series.name == 's kriminální minulostí') || (this.series.name == 'kuřák') || (this.series.name == 'homosexuál')) {
+                    return this.x + ': <b>' + this.y + ' %</b> Čechů by vadil soused <b>' + this.series.name + '</b>.'
+                } else {
+                    return this.x + ': <b>' + this.y + ' %</b> Čechů by vadil <b>' + this.series.name + '</b> soused.'
+                }
+            }
+        },
+        exporting: {
+            enabled: false
+        },
+        credits: {
+            href : 'http://nesstar.soc.cas.cz/webview/',
+            text : 'Zdroj: CVVM, Naše společnost'
+        },
+        series: [{
+            name: 'jiné náboženství',
+            data: timeline[0],
+            color: colors[0],
+            marker: {symbol: 'circle'}
+        }, {
+            name: 'jiné politické přesvědčení',
+            data: timeline[8],
+            color: colors[1],
+            visible: false,
+            marker: {symbol: 'circle'}
+        }, {
+            name: 'jiná barva pleti',
+            data: timeline[1],
+            color: colors[2],
+            marker: {symbol: 'circle'}
+        }, {
+            name: 'cizinec',
+            data: timeline[16],
+            color: colors[3],
+            marker: {symbol: 'circle'}
+        }, {
+            name: 'drogově závislý',
+            data: timeline[3],
+            color: colors[4],
+            visible: false,
+            marker: {symbol: 'circle'}
+        }, {
+            name: 'alkoholik',
+            data: timeline[12],
+            color: colors[5],
+            visible: false,
+            marker: {symbol: 'circle'}
+        }, {
+            name: 's kriminální minulostí',
+            data: timeline[11],
+            color: colors[6],
+            visible: false,
+            marker: {symbol: 'circle'}
+        }, {
+            name: 'psychicky nemocný',
+            data: timeline[17],
+            color: colors[7],
+            visible: false,
+            marker: {symbol: 'circle'}
+        }, {
+            name: 'tělesně postižený',
+            data: timeline[2],
+            color: colors[8],
+            visible: false,
+            marker: {symbol: 'circle'}
+        }, {
+            name: 'chudý',
+            data: timeline[5],
+            color: colors[9],
+            visible: false,
+            marker: {symbol: 'circle'}
+        }, {
+            name: 'bohatý',
+            data: timeline[13],
+            color: colors[10],
+            visible: false,
+            marker: {symbol: 'circle'}
+        }, {
+            name: 'starý',
+            data: timeline[10],
+            color: colors[11],
+            visible: false,
+            marker: {symbol: 'circle'}
+        }, {
+            name: 'mladý',
+            data: timeline[6],
+            color: colors[12],
+            visible: false,
+            marker: {symbol: 'circle'}
+        }, {
+            name: 'kuřák',
+            data: timeline[18],
+            color: colors[13],
+            visible: false,
+            marker: {symbol: 'circle'}
+        }, {
+            name: 'homosexuál',
+            data: timeline[9],
+            color: colors[14],
+            marker: {symbol: 'circle'}
+        }]
+    });
+
+    })
+});
+
+</script>
+</head>
+
+<body>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/highcharts-more.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+    <div id="container" style="width: 100vw; height: 100vh;"></div>
+</body>
+
+</html>

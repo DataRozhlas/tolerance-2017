@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>Highcharts Example</title>
+
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<style type="text/css">
+
+body {
+    margin: 0px;
+}
+
+		</style>
+
+		<script type="text/javascript">
+
+var colors = ['#1f77b4','#aec7e8','#ff7f0e','#ffbb78','#2ca02c','#98df8a','#d62728','#ff9896','#9467bd','#c5b0d5','#8c564b','#c49c94','#e377c2','#f7b6d2','#7f7f7f','#c7c7c7','#bcbd22','#dbdb8d','#17becf','#9edae5']
+
+var aktualni = [88.6, 76.8, 74.4, 68.2, 37.1, 31.8, 22.6, 19.3, 18.5, 10.7, 7.1, 6.9, 5.6, 5.3, 5.1]
+
+$(function () {
+
+    Highcharts.setOptions({
+            lang: {
+                months: ['leden', 'únor', 'březen', 'duben', 'květen', 'červen', 'červenec', 'srpen', 'září', 'říjen', 'listopad', 'prosinec'],
+                weekdays: ['neděle', 'pondělí', 'úterý', 'středa', 'čtvrtek', 'pátek', 'sobota'],
+                shortMonths: ['leden', 'únor', 'březen', 'duben', 'květen', 'červen', 'červenec', 'srpen', 'září', 'říjen', 'listopad', 'prosinec'],
+                thousandsSep: '',
+                decimalPoint:',',
+                rangeSelectorZoom: 'Zobrazit'
+            }
+        });
+
+$(function () {
+    $('#container').highcharts({
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Vedle koho byste nebydleli?'
+        },
+        subtitle: {
+            text: 'aktuální data, březen 2017'
+        },
+        xAxis: {
+            categories: ['drogově závislý', 'alkoholik', 's kriminální minulostí', 'psychicky nemocný', 'jiné barvy pleti', 'cizinec', 'homosexuál', 'jiné náboženství', 'kuřák', 'bohatý', 'tělesně postižený', 'chudý', 'starý', 'jiné politické přesvědčení', 'mladý']
+        },
+        yAxis: {
+            title: {
+                text: 'podíl odpovědí "nechci za souseda"'
+            },
+            labels: {
+                format: '{value} %'
+            },
+            min: 0
+        },
+        tooltip: {
+            formatter: function() {
+                if ((this.x == 'jiné náboženství') || (this.x == 'jiné politické přesvědčení')) {
+                    return '<b>' + this.y + ' %</b> Čechů by u souseda vadilo <b>' + this.x + '</b>.'
+                } else if (this.x == 'jiná barva pleti') {
+                    return '<b>' + this.y + ' %</b> Čechů by u souseda vadila <b>' + this.x + '</b>.'
+                } else if ((this.x == 'cizinec') || (this.x == 'alkoholik') || (this.x == 's kriminální minulostí') || (this.x == 'kuřák') || (this.x == 'homosexuál')) {
+                    return '<b>' + this.y + ' %</b> Čechů by vadil soused <b>' + this.x + '</b>.'
+                } else {
+                    return '<b>' + this.y + ' %</b> Čechů by vadil <b>' + this.x + '</b> soused.'
+                }
+            },
+            crosshairs: true
+        },
+        exporting: {
+            enabled: false
+        },
+        credits: {
+            href : 'http://nesstar.soc.cas.cz/webview/',
+            text : 'Zdroj: CVVM, Naše společnost'
+        },
+        series: [{
+            name: 'nechce za souseda (%)',
+            data: aktualni,
+            color: colors[0],
+            showInLegend: false
+        }]
+    });
+
+    })
+});
+
+</script>
+</head>
+
+<body>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/highcharts-more.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+    <div id="container" style="width: 100vw; height: 100vh;"></div>
+</body>
+
+</html>
