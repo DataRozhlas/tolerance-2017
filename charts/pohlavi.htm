@@ -1,0 +1,385 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Highcharts Example</title>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<style type="text/css">
+
+body {
+    margin: 0px;
+}
+
+</style>
+
+<script type="text/javascript">
+
+var colors = ['rgb(31, 119, 180)', 'rgb(214, 39, 40)']
+
+var pohlavi_nab = [
+  [-100,-100],
+  [8.1,20.9],
+  [7.1,17.8]
+]
+
+var pohlavi_plet = [
+  [-100,-100],
+  [24.1,38.6],
+  [20.8,35.7]
+]
+
+var pohlavi_ciz = [
+  [-100,-100],
+  [23.1,31.2],
+  [19.0,32.3]
+]
+
+var pohlavi_hom = [
+  [-100,-100],
+  [35.3,26.2],
+  [32.7,19.1]
+]
+
+$(function () {
+
+    Highcharts.setOptions({
+            lang: {
+                months: ['leden', 'únor', 'březen', 'duben', 'květen', 'červen', 'červenec', 'srpen', 'září', 'říjen', 'listopad', 'prosinec'],
+                weekdays: ['neděle', 'pondělí', 'úterý', 'středa', 'čtvrtek', 'pátek', 'sobota'],
+                shortMonths: ['leden', 'únor', 'březen', 'duben', 'květen', 'červen', 'červenec', 'srpen', 'září', 'říjen', 'listopad', 'prosinec'],
+                thousandsSep: '',
+                decimalPoint:',',
+                rangeSelectorZoom: 'Zobrazit'
+            }
+        });
+
+$(function () {
+    $('#container').highcharts({
+        chart: {
+            type: 'line'
+        },
+        title: {
+            text: 'Vedle koho byste nebydleli?'
+        },
+        subtitle: {
+            text: 'podle pohlaví'
+        },
+        xAxis: {
+            categories: ['2005', '2017']
+        },
+        yAxis: {
+            title: {
+                text: 'podíl odpovědí "nechci za souseda"'
+            },
+            labels: {
+                format: '{value} %'
+            },
+            min: 0
+        },
+        annotations: [{
+            labels: [{
+                point: {
+                    x: 0,
+                    y: pohlavi_nab[1][0] + 0.4,
+                    xAxis: 0,
+                    yAxis: 0
+                },
+                text: 'Muži',
+                backgroundColor: colors[0]
+            }, {
+                point: {
+                    x: 0,
+                    y: pohlavi_nab[2][0] - 0.4,
+                    xAxis: 0,
+                    yAxis: 0
+                },
+                text: 'Ženy',
+                backgroundColor: colors[1]
+            }],
+            labelOptions: {
+                x: -50,
+                y: 10,
+                borderWidth: 0.1,
+                borderRadius: 10,
+                borderColor: '#fffffb'
+            },
+            visible: false
+        }, {
+            labels: [{
+                point: {
+                    x: 1,
+                    y: pohlavi_plet[1][1],
+                    xAxis: 0,
+                    yAxis: 0
+                },
+                text: 'Muži',
+                backgroundColor: colors[0]
+            }, {
+                point: {
+                    x: 1,
+                    y: pohlavi_plet[2][1],
+                    xAxis: 0,
+                    yAxis: 0
+                },
+                text: 'Ženy',
+                backgroundColor: colors[1]
+            }],
+            labelOptions: {
+                x: 50,
+                y: 10,
+                borderWidth: 0.1,
+                borderRadius: 10,
+                borderColor: '#fffffc'
+            },
+            visible: false
+        }, {
+            labels: [{
+                point: {
+                    x: 0,
+                    y: pohlavi_ciz[1][0],
+                    xAxis: 0,
+                    yAxis: 0
+                },
+                text: 'Muži',
+                backgroundColor: colors[0]
+            }, {
+                point: {
+                    x: 0,
+                    y: pohlavi_ciz[2][0],
+                    xAxis: 0,
+                    yAxis: 0
+                },
+                text: 'Ženy',
+                backgroundColor: colors[1]
+            }],
+            labelOptions: {
+                x: -50,
+                y: 10,
+                borderWidth: 0.1,
+                borderRadius: 10,
+                borderColor: '#fffffd'
+            }
+        }, {
+            labels: [{
+                point: {
+                    x: 0,
+                    y: pohlavi_hom[1][0],
+                    xAxis: 0,
+                    yAxis: 0
+                },
+                text: 'Muži',
+                backgroundColor: colors[0]
+            }, {
+                point: {
+                    x: 0,
+                    y: pohlavi_hom[2][0],
+                    xAxis: 0,
+                    yAxis: 0
+                },
+                text: 'Ženy',
+                backgroundColor: colors[1]
+            }],
+            labelOptions: {
+                x: -50,
+                y: 10,
+                borderWidth: 0.1,
+                borderRadius: 10,
+                borderColor: '#fffffe'
+            },
+            visible: false
+        }],
+        tooltip: {
+            formatter: function() {
+                if (this.series.name == 'jiné náboženství, muži') {
+                    return this.x + ': <b>' + this.y + ' %</b> českých mužů by u souseda vadilo <b>jiné náboženství</b>.'
+                } else if (this.series.name == 'jiné náboženství, ženy') {
+                    return this.x + ': <b>' + this.y + ' %</b> českých žen by u souseda vadilo <b>jiné náboženství</b>.'
+                } else if (this.series.name == 'jiná barva pleti, muži') {
+                    return this.x + ': <b>' + this.y + ' %</b> českých mužů by u souseda vadila <b>jiná barva pleti</b>.'
+                } else if (this.series.name == 'jiná barva pleti, ženy') {
+                    return this.x + ': <b>' + this.y + ' %</b> českých žen by u souseda vadila <b>jiná barva pleti</b>.'
+                } else if (this.series.name == 'cizinec, muži') {
+                    return this.x + ': <b>' + this.y + ' %</b> českých mužů by vadil soused <b>cizinec</b>.'
+                } else if (this.series.name == 'cizinec, ženy') {
+                    return this.x + ': <b>' + this.y + ' %</b> českých žen by vadil soused <b>cizinec</b>.'
+                } else if (this.series.name == 'homosexuál, muži') {
+                    return this.x + ': <b>' + this.y + ' %</b> českých mužů by vadil soused <b>homosexuál</b>.'
+                } else if (this.series.name == 'homosexuál, ženy') {
+                    return this.x + ': <b>' + this.y + ' %</b> českých žen by vadil soused <b>homosexuál</b>.'
+                } else return ''
+            }
+        },
+        exporting: {
+            enabled: false
+        },
+        credits: {
+            href : 'http://nesstar.soc.cas.cz/webview/',
+            text : 'Zdroj: CVVM, Naše společnost'
+        },
+        legend: {
+            symbolHeight: '0px'
+        },
+        series: [{
+            name: 'jiné náboženství',
+            data: pohlavi_nab[0],
+            marker: {symbol: 'circle'},
+            visible: false,
+            color: '#000'
+        }, {
+            name: 'jiné náboženství, muži',
+            data: pohlavi_nab[1],
+            color: colors[0],
+            marker: {symbol: 'circle'},
+            showInLegend: false,
+            visible: false,
+            linkedTo: ':previous'
+        }, {
+            name: 'jiné náboženství, ženy',
+            data: pohlavi_nab[2],
+            color: colors[1],
+            marker: {symbol: 'circle'},
+            showInLegend: false,
+            visible: false,
+            linkedTo: ':previous'
+        }, {
+            name: 'jiná barva pleti',
+            data: pohlavi_plet[0],
+            color: colors[14],
+            marker: {symbol: 'circle'},
+            dashStyle: 'DashDot',
+            visible: false,
+            color: '#000'
+        }, {
+            name: 'jiná barva pleti, muži',
+            data: pohlavi_plet[1],
+            color: colors[0],
+            marker: {symbol: 'circle'},
+            showInLegend: false,
+            visible: false,
+            linkedTo: ':previous',
+            dashStyle: 'DashDot'
+        }, {
+            name: 'jiná barva pleti, ženy',
+            data: pohlavi_plet[2],
+            color: colors[1],
+            marker: {symbol: 'circle'},
+            showInLegend: false,
+            visible: false,
+            linkedTo: ':previous',
+            dashStyle: 'DashDot'
+        }, {
+            name: 'cizinec',
+            data: pohlavi_ciz[0],
+            marker: {symbol: 'circle'},
+            dashStyle: 'ShortDot',
+            color: '#000'
+        }, {
+            name: 'cizinec, muži',
+            data: pohlavi_ciz[1],
+            color: colors[0],
+            marker: {symbol: 'circle'},
+            showInLegend: false,
+            linkedTo: ':previous',
+            dashStyle: 'ShortDot'
+        }, {
+            name: 'cizinec, ženy',
+            data: pohlavi_ciz[2],
+            color: colors[1],
+            marker: {symbol: 'circle'},
+            showInLegend: false,
+            linkedTo: ':previous',
+            dashStyle: 'ShortDot'
+        }, {
+            name: 'homosexuál',
+            data: pohlavi_hom[0],
+            color: colors[14],
+            marker: {symbol: 'circle'},
+            dashStyle: 'Dash',
+            visible: false,
+            color: '#000'
+        }, {
+            name: 'homosexuál, muži',
+            data: pohlavi_hom[1],
+            color: colors[0],
+            marker: {symbol: 'circle'},
+            showInLegend: false,
+            visible: false,
+            linkedTo: ':previous',
+            dashStyle: 'Dash'
+        }, {
+            name: 'homosexuál, ženy',
+            data: pohlavi_hom[2],
+            color: colors[1],
+            marker: {symbol: 'circle'},
+            showInLegend: false,
+            visible: false,
+            linkedTo: ':previous',
+            dashStyle: 'Dash'
+        }]
+    });
+
+})
+});
+
+var popisek_nab = false,
+    popisek_plet = false,
+    popisek_ciz = true,
+    popisek_hom = false;
+
+$(document).click(function(event) {
+    if($(event.target).text() == 'jiné náboženství') {
+        if(popisek_nab) {
+            $('[stroke="#fffffb"]').parent().attr("visibility", "hidden")
+        } else {
+            $('[stroke="#fffffb"]').parent().attr("visibility", "visible")
+        }
+        popisek_nab = !popisek_nab;
+    }
+});
+
+$(document).click(function(event) {
+    if($(event.target).text() == 'jiná barva pleti') {
+        if(popisek_plet) {
+            $('[stroke="#fffffc"]').parent().attr("visibility", "hidden")
+        } else {
+            $('[stroke="#fffffc"]').parent().attr("visibility", "visible")
+        }
+        popisek_plet = !popisek_plet;
+    }
+});
+
+$(document).click(function(event) {
+    if($(event.target).text() == 'cizinec') {
+        if(popisek_ciz) {
+            $('[stroke="#fffffd"]').parent().attr("visibility", "hidden")
+        } else {
+            $('[stroke="#fffffd"]').parent().attr("visibility", "visible")
+        }
+        popisek_ciz = !popisek_ciz;
+    }
+});
+
+$(document).click(function(event) {
+    if($(event.target).text() == 'homosexuál') {
+        if(popisek_hom) {
+            $('[stroke="#fffffe"]').parent().attr("visibility", "hidden")
+        } else {
+            $('[stroke="#fffffe"]').parent().attr("visibility", "visible")
+        }
+        popisek_hom = !popisek_hom;
+    }
+});
+
+</script>
+</head>
+
+<body>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/annotations.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <div id="container" style="width: 100vw; height: 100vh;"></div>
+</body>
+
+</html>
