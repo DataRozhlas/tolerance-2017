@@ -1,0 +1,547 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Highcharts Example</title>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<style type="text/css">
+
+body {
+    margin: 0px;
+}
+
+</style>
+
+<script type="text/javascript">
+
+var colors = ['#e41a1c', '#377eb8', '#4daf4a', '#984ea3']
+
+var vzdelani_nab = [
+  [-100,-100],
+  [11.8,21.4],
+  [6.0,24.6],
+  [7.9,19.0],
+  [5.9,16.6]
+]
+
+var vzdelani_plet = [
+  [-100,-100],
+  [28.0,40.1],
+  [22.5,46.4],
+  [20.9,32.1],
+  [16.1,31.3]
+]
+
+var vzdelani_ciz = [
+  [-100,-100],
+  [22.0,37.5],
+  [23.2,37.3],
+  [19.9,28.0],
+  [16.1,28.8]
+]
+
+var vzdelani_hom = [
+  [-100,-100],
+  [39.4,30.7],
+  [36.5,28.5],
+  [29.8,18.7],
+  [25.4,17.2]
+]
+
+$(function () {
+
+    Highcharts.setOptions({
+            lang: {
+                months: ['leden', 'únor', 'březen', 'duben', 'květen', 'červen', 'červenec', 'srpen', 'září', 'říjen', 'listopad', 'prosinec'],
+                weekdays: ['neděle', 'pondělí', 'úterý', 'středa', 'čtvrtek', 'pátek', 'sobota'],
+                shortMonths: ['leden', 'únor', 'březen', 'duben', 'květen', 'červen', 'červenec', 'srpen', 'září', 'říjen', 'listopad', 'prosinec'],
+                thousandsSep: '',
+                decimalPoint:',',
+                rangeSelectorZoom: 'Zobrazit'
+            }
+        });
+
+$(function () {
+    $('#container').highcharts({
+        chart: {
+            type: 'line'
+        },
+        title: {
+            text: 'Vedle koho byste nebydleli?'
+        },
+        subtitle: {
+            text: 'podle vzdělání'
+        },
+        xAxis: {
+            categories: ['2005', '2017']
+        },
+        yAxis: {
+            title: {
+                text: 'podíl odpovědí "nechci za souseda"'
+            },
+            labels: {
+                format: '{value} %'
+            },
+            min: 0
+        },
+        annotations: [{
+            labels: [{
+                point: {
+                    x: 0,
+                    y: vzdelani_nab[1][0],
+                    xAxis: 0,
+                    yAxis: 0
+                },
+                text: 'základní',
+                backgroundColor: colors[0]
+            }, {
+                point: {
+                    x: 0,
+                    y: vzdelani_nab[2][0]+0.5,
+                    xAxis: 0,
+                    yAxis: 0
+                },
+                text: 'bez maturity',
+                backgroundColor: colors[1]
+            }, {
+                point: {
+                    x: 0,
+                    y: vzdelani_nab[3][0],
+                    xAxis: 0,
+                    yAxis: 0
+                },
+                text: 's maturitou',
+                backgroundColor: colors[2]
+            }, {
+                point: {
+                    x: 0,
+                    y: vzdelani_nab[4][0]-0.8,
+                    xAxis: 0,
+                    yAxis: 0
+                },
+                text: 'VŠ a VOŠ',
+                backgroundColor: colors[3]
+            }],
+            labelOptions: {
+                x: -60,
+                y: 10,
+                borderWidth: 0.1,
+                borderRadius: 10,
+                borderColor: '#fffffb'
+            }
+        }, {
+            labels: [{
+                point: {
+                    x: 1,
+                    y: vzdelani_plet[1][1]+0.8,
+                    xAxis: 0,
+                    yAxis: 0
+                },
+                text: 'základní',
+                backgroundColor: colors[0]
+            }, {
+                point: {
+                    x: 1,
+                    y: vzdelani_plet[2][1],
+                    xAxis: 0,
+                    yAxis: 0
+                },
+                text: 'bez maturity',
+                backgroundColor: colors[1]
+            }, {
+                point: {
+                    x: 1,
+                    y: vzdelani_plet[3][1]+0.7,
+                    xAxis: 0,
+                    yAxis: 0
+                },
+                text: 's maturitou',
+                backgroundColor: colors[2]
+            }, {
+                point: {
+                    x: 1,
+                    y: vzdelani_plet[4][1]-0.7,
+                    xAxis: 0,
+                    yAxis: 0
+                },
+                text: 'VŠ a VOŠ',
+                backgroundColor: colors[3]
+            }],
+            labelOptions: {
+                x: 60,
+                y: 10,
+                borderWidth: 0.1,
+                borderRadius: 10,
+                borderColor: '#fffffc'
+            },
+            visible: false
+        }, {
+            labels: [{
+                point: {
+                    x: 1,
+                    y: vzdelani_ciz[1][1]+0.9,
+                    xAxis: 0,
+                    yAxis: 0
+                },
+                text: 'základní',
+                backgroundColor: colors[0]
+            }, {
+                point: {
+                    x: 1,
+                    y: vzdelani_ciz[2][1]-0.9,
+                    xAxis: 0,
+                    yAxis: 0
+                },
+                text: 'bez maturity',
+                backgroundColor: colors[1]
+            }, {
+                point: {
+                    x: 1,
+                    y: vzdelani_ciz[3][1]-1,
+                    xAxis: 0,
+                    yAxis: 0
+                },
+                text: 's maturitou',
+                backgroundColor: colors[2]
+            }, {
+                point: {
+                    x: 1,
+                    y: vzdelani_ciz[4][1],
+                    xAxis: 0,
+                    yAxis: 0
+                },
+                text: 'VŠ a VOŠ',
+                backgroundColor: colors[3]
+            }],
+            labelOptions: {
+                x: 60,
+                y: 10,
+                borderWidth: 0.1,
+                borderRadius: 10,
+                borderColor: '#fffffd'
+            },
+            visible: false
+        }, {
+            labels: [{
+                point: {
+                    x: 0,
+                    y: vzdelani_hom[1][0],
+                    xAxis: 0,
+                    yAxis: 0
+                },
+                text: 'základní',
+                backgroundColor: colors[0]
+            }, {
+                point: {
+                    x: 0,
+                    y: vzdelani_hom[2][0],
+                    xAxis: 0,
+                    yAxis: 0
+                },
+                text: 'bez maturity',
+                backgroundColor: colors[1]
+            }, {
+                point: {
+                    x: 0,
+                    y: vzdelani_hom[3][0],
+                    xAxis: 0,
+                    yAxis: 0
+                },
+                text: 's maturitou',
+                backgroundColor: colors[2]
+            }, {
+                point: {
+                    x: 0,
+                    y: vzdelani_hom[4][0],
+                    xAxis: 0,
+                    yAxis: 0
+                },
+                text: 'VŠ a VOŠ',
+                backgroundColor: colors[3]
+            }],
+            labelOptions: {
+                x: -60,
+                y: 10,
+                borderWidth: 0.1,
+                borderRadius: 10,
+                borderColor: '#fffffe'
+            },
+            visible: false
+        }],
+        tooltip: {
+            formatter: function() {
+                if (this.series.name == 'jiné náboženství, (neúplné) základní') {
+                    return this.x + ': <b>' + this.y + ' %</b> lidí se základním vzděláním (vč. neúplného) by u souseda vadilo <b>jiné náboženství</b>.'
+                } else if (this.series.name == 'jiné náboženství, střední bez maturity') {
+                    return this.x + ': <b>' + this.y + ' %</b> učňů a absolventů střední školy bez maturity by u souseda vadilo <b>jiné náboženství</b>.'
+                } else if (this.series.name == 'jiné náboženství, střední s maturitou') {
+                    return this.x + ': <b>' + this.y + ' %</b> absolventů střední školy s maturitou by u souseda vadilo <b>jiné náboženství</b>.'
+                } else if (this.series.name == 'jiné náboženství, VŠ a VOŠ') {
+                    return this.x + ': <b>' + this.y + ' %</b> absolventů VŠ nebo VOŠ by u souseda vadilo <b>jiné náboženství</b>.'
+                } else if (this.series.name == 'jiná barva pleti, (neúplné) základní') {
+                    return this.x + ': <b>' + this.y + ' %</b> lidí se základním vzděláním (vč. neúplného) by u souseda vadila <b>jiná barva pleti</b>.'
+                } else if (this.series.name == 'jiná barva pleti, střední bez maturity') {
+                    return this.x + ': <b>' + this.y + ' %</b> učňů a absolventů střední školy bez maturity by u souseda vadila <b>jiná barva pleti</b>.'
+                } else if (this.series.name == 'jiná barva pleti, střední s maturitou') {
+                    return this.x + ': <b>' + this.y + ' %</b> absolventů střední školy s maturitou by u souseda vadila <b>jiná barva pleti</b>.'
+                } else if (this.series.name == 'jiná barva pleti, VŠ a VOŠ') {
+                    return this.x + ': <b>' + this.y + ' %</b> absolventů VŠ nebo VOŠ by u souseda vadila <b>jiná barva pleti</b>.'
+                } else if (this.series.name == 'cizinec, (neúplné) základní') {
+                    return this.x + ': <b>' + this.y + ' %</b> lidí se základním vzděláním (vč. neúplného) by vadil soused <b>cizinec</b>.'
+                } else if (this.series.name == 'cizinec, střední bez maturity') {
+                    return this.x + ': <b>' + this.y + ' %</b> učňů a absolventů střední školy bez maturity by vadil soused <b>cizinec</b>.'
+                } else if (this.series.name == 'cizinec, střední s maturitou') {
+                    return this.x + ': <b>' + this.y + ' %</b> absolventů střední školy s maturitou by vadil soused <b>cizinec</b>.'
+                } else if (this.series.name == 'cizinec, VŠ a VOŠ') {
+                    return this.x + ': <b>' + this.y + ' %</b> absolventů VŠ nebo VOŠ by vadil soused <b>cizinec</b>.'
+                } else if (this.series.name == 'homosexuál, (neúplné) základní') {
+                    return this.x + ': <b>' + this.y + ' %</b> lidí se základním vzděláním (vč. neúplného) by vadil soused <b>homosexuál</b>.'
+                } else if (this.series.name == 'homosexuál, střední bez maturity') {
+                    return this.x + ': <b>' + this.y + ' %</b> učňů a absolventů střední školy bez maturity by vadil soused <b>homosexuál</b>.'
+                } else if (this.series.name == 'homosexuál, střední s maturitou') {
+                    return this.x + ': <b>' + this.y + ' %</b> absolventů střední školy s maturitou by vadil soused <b>homosexuál</b>.'
+                } else if (this.series.name == 'homosexuál, VŠ a VOŠ') {
+                    return this.x + ': <b>' + this.y + ' %</b> absolventů VŠ nebo VOŠ by vadil soused <b>homosexuál</b>.'
+                } else return ''
+            }
+        },
+        exporting: {
+            enabled: false
+        },
+        credits: {
+            href : 'http://nesstar.soc.cas.cz/webview/',
+            text : 'Zdroj: CVVM, Naše společnost'
+        },
+        legend: {
+            symbolHeight: '0px'
+        },
+        series: [{
+            name: 'jiné náboženství',
+            data: vzdelani_nab[0],
+            marker: {symbol: 'circle'},
+            color: '#000'
+        }, {
+            name: 'jiné náboženství, (neúplné) základní',
+            data: vzdelani_nab[1],
+            color: colors[0],
+            marker: {symbol: 'circle'},
+            showInLegend: false,
+            linkedTo: ':previous'
+        }, {
+            name: 'jiné náboženství, (neúplné) základní',
+            data: vzdelani_nab[2],
+            color: colors[1],
+            marker: {symbol: 'circle'},
+            showInLegend: false,
+            linkedTo: ':previous'
+        }, {
+            name: 'jiné náboženství, střední s maturitou',
+            data: vzdelani_nab[3],
+            color: colors[2],
+            marker: {symbol: 'circle'},
+            showInLegend: false,
+            linkedTo: ':previous'
+        }, {
+            name: 'jiné náboženství, VŠ a VOŠ',
+            data: vzdelani_nab[4],
+            color: colors[3],
+            marker: {symbol: 'circle'},
+            showInLegend: false,
+            linkedTo: ':previous'
+        }, {
+            name: 'jiná barva pleti',
+            data: vzdelani_plet[0],
+            marker: {symbol: 'circle'},
+            color: '#000',
+            dashStyle: 'DashDot',
+            visible: false
+        }, {
+            name: 'jiná barva pleti, (neúplné) základní',
+            data: vzdelani_plet[1],
+            color: colors[0],
+            marker: {symbol: 'circle'},
+            showInLegend: false,
+            linkedTo: ':previous',
+            dashStyle: 'DashDot',
+            visible: false
+        }, {
+            name: 'jiná barva pleti, střední bez maturity',
+            data: vzdelani_plet[2],
+            color: colors[1],
+            marker: {symbol: 'circle'},
+            showInLegend: false,
+            linkedTo: ':previous',
+            dashStyle: 'DashDot',
+            visible: false
+        }, {
+            name: 'jiná barva pleti, střední s maturitou',
+            data: vzdelani_plet[3],
+            color: colors[2],
+            marker: {symbol: 'circle'},
+            showInLegend: false,
+            linkedTo: ':previous',
+            dashStyle: 'DashDot',
+            visible: false
+        }, {
+            name: 'jiná barva pleti, VŠ a VOŠ',
+            data: vzdelani_plet[4],
+            color: colors[3],
+            marker: {symbol: 'circle'},
+            showInLegend: false,
+            linkedTo: ':previous',
+            dashStyle: 'DashDot',
+            visible: false
+        }, {
+            name: 'cizinec',
+            data: vzdelani_nab[0],
+            marker: {symbol: 'circle'},
+            color: '#000',
+            dashStyle: 'ShortDot',
+            visible: false
+        }, {
+            name: 'cizinec, (neúplné) základní',
+            data: vzdelani_ciz[1],
+            color: colors[0],
+            marker: {symbol: 'circle'},
+            showInLegend: false,
+            linkedTo: ':previous',
+            visible: false,
+            dashStyle: 'ShortDot'
+        }, {
+            name: 'cizinec, střední bez maturity',
+            data: vzdelani_ciz[2],
+            color: colors[1],
+            marker: {symbol: 'circle'},
+            showInLegend: false,
+            linkedTo: ':previous',
+            visible: false,
+            dashStyle: 'ShortDot'
+        }, {
+            name: 'cizinec, střední s maturitou',
+            data: vzdelani_ciz[3],
+            color: colors[2],
+            marker: {symbol: 'circle'},
+            showInLegend: false,
+            linkedTo: ':previous',
+            visible: false,
+            dashStyle: 'ShortDot'
+        }, {
+            name: 'cizinec, VŠ a VOŠ',
+            data: vzdelani_ciz[4],
+            color: colors[3],
+            marker: {symbol: 'circle'},
+            showInLegend: false,
+            linkedTo: ':previous',
+            visible: false,
+            dashStyle: 'ShortDot'
+        }, {
+            name: 'homosexuál',
+            data: vzdelani_hom[0],
+            marker: {symbol: 'circle'},
+            color: '#000',
+            visible: false,
+            dashStyle: 'Dash'
+        }, {
+            name: 'homosexuál, (neúplné) základní',
+            data: vzdelani_hom[1],
+            color: colors[0],
+            marker: {symbol: 'circle'},
+            showInLegend: false,
+            linkedTo: ':previous',
+            visible: false,
+            dashStyle: 'Dash'
+        }, {
+            name: 'homosexuál, střední bez maturity',
+            data: vzdelani_hom[2],
+            color: colors[1],
+            marker: {symbol: 'circle'},
+            showInLegend: false,
+            linkedTo: ':previous',
+            visible: false,
+            dashStyle: 'Dash'
+        }, {
+            name: 'homosexuál, střední s maturitou',
+            data: vzdelani_hom[3],
+            color: colors[2],
+            marker: {symbol: 'circle'},
+            showInLegend: false,
+            linkedTo: ':previous',
+            visible: false,
+            dashStyle: 'Dash'
+        }, {
+            name: 'homosexuál, VŠ a VOŠ',
+            data: vzdelani_hom[4],
+            color: colors[3],
+            marker: {symbol: 'circle'},
+            showInLegend: false,
+            linkedTo: ':previous',
+            visible: false,
+            dashStyle: 'Dash'
+        }]
+    });
+
+})
+});
+
+var popisek_nab = true,
+    popisek_plet = false,
+    popisek_ciz = false,
+    popisek_hom = false;
+
+$(document).click(function(event) {
+    if($(event.target).text() == 'jiné náboženství') {
+        if(popisek_nab) {
+            $('[stroke="#fffffb"]').parent().attr("visibility", "hidden")
+        } else {
+            $('[stroke="#fffffb"]').parent().attr("visibility", "visible")
+        }
+        popisek_nab = !popisek_nab;
+    }
+});
+
+$(document).click(function(event) {
+    if($(event.target).text() == 'jiná barva pleti') {
+        if(popisek_plet) {
+            $('[stroke="#fffffc"]').parent().attr("visibility", "hidden")
+        } else {
+            $('[stroke="#fffffc"]').parent().attr("visibility", "visible")
+        }
+        popisek_plet = !popisek_plet;
+    }
+});
+
+$(document).click(function(event) {
+    if($(event.target).text() == 'cizinec') {
+        if(popisek_ciz) {
+            $('[stroke="#fffffd"]').parent().attr("visibility", "hidden")
+        } else {
+            $('[stroke="#fffffd"]').parent().attr("visibility", "visible")
+        }
+        popisek_ciz = !popisek_ciz;
+    }
+});
+
+$(document).click(function(event) {
+    if($(event.target).text() == 'homosexuál') {
+        if(popisek_hom) {
+            $('[stroke="#fffffe"]').parent().attr("visibility", "hidden")
+        } else {
+            $('[stroke="#fffffe"]').parent().attr("visibility", "visible")
+        }
+        popisek_hom = !popisek_hom;
+    }
+});
+
+</script>
+</head>
+
+<body>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/annotations.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <div id="container" style="width: 100vw; height: 100vh;"></div>
+</body>
+
+</html>

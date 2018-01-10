@@ -15,42 +15,42 @@ body {
 
 <script type="text/javascript">
 
-var colors = ['#fed976', '#feb24c', '#fc4e2a', '#bd0026' ,'#800026']
+var colors = ['#c7e9b4', '#7fcdbb', '#1d91c0', '#253494', '#081d58']
 
-var obec_nab = [
+var vek_nab = [
   [-100,-100],
-  [5.4,23.0],
-  [8.9,21.5],
-  [6.9,19.2],
-  [7.5,11.1],
-  [11.2,24.1]
+  [11.5,20.8],
+  [8.0,21.3],
+  [7.3,18.8],
+  [9.7,22.1],
+  [8.6,20.4]
 ]
 
-var obec_plet = [
+var vek_plet = [
   [-100,-100],
-  [19.4,39.6],
-  [26.9,40.1],
-  [20.7,38.0],
-  [24.5,29.1],
-  [20.0,34.8]
+  [27.5,27.8],
+  [21.6,35.0],
+  [23.0,34.2],
+  [23.0,35.7],
+  [23.6,48.2]
 ]
 
-var obec_ciz = [
+var vek_ciz = [
   [-100,-100],
-  [18.0,37.4],
-  [19.9,30.7],
-  [21.5,36.0],
-  [23.8,24.8],
-  [25.6,29.8]
+  [22.1,27.8],
+  [20.5,31.3],
+  [20.7,31.2],
+  [21.6,32.5],
+  [25.3,37.0]
 ]
 
-var obec_hom = [
+var vek_hom = [
   [-100,-100],
-  [39.6,30.2],
-  [35.1,24.5],
-  [30.5,18.8],
-  [31.3,22.2],
-  [28.8,23.4]
+  [33.6,29.2],
+  [29.0,18.1],
+  [29.1,16.8],
+  [33.1,20.9],
+  [48.1,34.9]
 ]
 
 $(function () {
@@ -75,7 +75,7 @@ $(function () {
             text: 'Vedle koho byste nebydleli?'
         },
         subtitle: {
-            text: 'podle velikosti obce'
+            text: 'podle věku'
         },
         xAxis: {
             categories: ['2005', '2017']
@@ -92,269 +92,265 @@ $(function () {
         annotations: [{
             labels: [{
                 point: {
-                    x: 0,
-                    y: obec_nab[1][0]-0.2,
+                    x: 1,
+                    y: vek_nab[1][1],
                     xAxis: 0,
                     yAxis: 0
                 },
-                text: 'do 2 tisíc',
+                text: '15-19 let',
                 backgroundColor: colors[0]
             }, {
                 point: {
-                    x: 0,
-                    y: obec_nab[2][0]+0.1,
+                    x: 1,
+                    y: vek_nab[2][1]+0.6,
                     xAxis: 0,
                     yAxis: 0
                 },
-                text: '2 až 15 tisíc',
+                text: '20-29 let',
                 backgroundColor: colors[1]
             }, {
                 point: {
-                    x: 0,
-                    y: obec_nab[3][0]-0.3,
+                    x: 1,
+                    y: vek_nab[3][1]-0.2,
                     xAxis: 0,
                     yAxis: 0
                 },
-                text: '15 až 80 tisíc',
+                text: '30-44 let',
                 backgroundColor: colors[2]
             }, {
                 point: {
-                    x: 0,
-                    y: obec_nab[4][0]+0.3,
+                    x: 1,
+                    y: vek_nab[4][1]+0.9,
                     xAxis: 0,
                     yAxis: 0
                 },
-                text: '80 tisíc až milion',
+                text: '45-59 let',
                 backgroundColor: colors[3]
             }, {
                 point: {
-                    x: 0,
-                    y: obec_nab[5][0],
+                    x: 1,
+                    y: vek_nab[5][1]-0.7,
                     xAxis: 0,
                     yAxis: 0
                 },
-                text: 'Praha',
+                text: 'nad 60 let',
                 backgroundColor: colors[4]
             }],
             labelOptions: {
-                x: -30,
+                x: 50,
                 y: 10,
                 borderWidth: 0.1,
                 borderRadius: 10,
-                borderColor: '#fffffb',
-                align: 'right'
+                borderColor: '#fffffb'
             },
             visible: false
         }, {
             labels: [{
                 point: {
                     x: 1,
-                    y: obec_plet[1][1]-0.2,
+                    y: vek_plet[1][1],
                     xAxis: 0,
                     yAxis: 0
                 },
-                text: 'do 2 tisíc',
+                text: '15-19 let',
                 backgroundColor: colors[0]
             }, {
                 point: {
                     x: 1,
-                    y: obec_plet[2][1]+1.4,
+                    y: vek_plet[2][1],
                     xAxis: 0,
                     yAxis: 0
                 },
-                text: '2 až 15 tisíc',
+                text: '20-29 let',
                 backgroundColor: colors[1]
             }, {
                 point: {
                     x: 1,
-                    y: obec_plet[3][1]-0.6,
+                    y: vek_plet[3][1]-1.5,
                     xAxis: 0,
                     yAxis: 0
                 },
-                text: '15 až 80 tisíc',
+                text: '30-44 let',
                 backgroundColor: colors[2]
             }, {
                 point: {
                     x: 1,
-                    y: obec_plet[4][1]-0.4,
+                    y: vek_plet[4][1]+1.6,
                     xAxis: 0,
                     yAxis: 0
                 },
-                text: '80 tisíc až milion',
+                text: '45-59 let',
                 backgroundColor: colors[3]
             }, {
                 point: {
                     x: 1,
-                    y: obec_plet[5][1],
+                    y: vek_plet[5][1],
                     xAxis: 0,
                     yAxis: 0
                 },
-                text: 'Praha',
+                text: 'nad 60 let',
                 backgroundColor: colors[4]
             }],
             labelOptions: {
-                x: 30,
+                x: 50,
                 y: 10,
                 borderWidth: 0.1,
                 borderRadius: 10,
-                borderColor: '#fffffc',
-                align: 'left'
-            },
-            visible: false
-        }, {
-            labels: [{
-                point: {
-                    x: 0,
-                    y: obec_ciz[1][0],
-                    xAxis: 0,
-                    yAxis: 0
-                },
-                text: 'do 2 tisíc',
-                backgroundColor: colors[0]
-            }, {
-                point: {
-                    x: 0,
-                    y: obec_ciz[2][0],
-                    xAxis: 0,
-                    yAxis: 0
-                },
-                text: '2 až 15 tisíc',
-                backgroundColor: colors[1]
-            }, {
-                point: {
-                    x: 0,
-                    y: obec_ciz[3][0]+0.3,
-                    xAxis: 0,
-                    yAxis: 0
-                },
-                text: '15 až 80 tisíc',
-                backgroundColor: colors[2]
-            }, {
-                point: {
-                    x: 0,
-                    y: obec_ciz[4][0],
-                    xAxis: 0,
-                    yAxis: 0
-                },
-                text: '80 tisíc až milion',
-                backgroundColor: colors[3]
-            }, {
-                point: {
-                    x: 0,
-                    y: obec_ciz[5][0],
-                    xAxis: 0,
-                    yAxis: 0
-                },
-                text: 'Praha',
-                backgroundColor: colors[4]
-            }],
-            labelOptions: {
-                x: -30,
-                y: 10,
-                borderWidth: 0.1,
-                borderRadius: 10,
-                borderColor: '#fffffd',
-                align: 'right'
+                borderColor: '#fffffc'
             }
         }, {
             labels: [{
                 point: {
-                    x: 1,
-                    y: obec_hom[1][1]+0.3,
+                    x: 0,
+                    y: vek_ciz[1][0]+1.5,
                     xAxis: 0,
                     yAxis: 0
                 },
-                text: 'do 2 tisíc',
+                text: '15-19 let',
                 backgroundColor: colors[0]
             }, {
                 point: {
-                    x: 1,
-                    y: obec_hom[2][1]+0.7,
+                    x: 0,
+                    y: vek_ciz[2][0]-2,
                     xAxis: 0,
                     yAxis: 0
                 },
-                text: '2 až 15 tisíc',
+                text: '20-29 let',
                 backgroundColor: colors[1]
             }, {
                 point: {
-                    x: 1,
-                    y: obec_hom[3][1],
+                    x: 0,
+                    y: vek_ciz[3][0]-0.5,
                     xAxis: 0,
                     yAxis: 0
                 },
-                text: '15 až 80 tisíc',
+                text: '30-44 let',
                 backgroundColor: colors[2]
             }, {
                 point: {
-                    x: 1,
-                    y: obec_hom[4][1]-0.7,
+                    x: 0,
+                    y: vek_ciz[4][0]+0.3,
                     xAxis: 0,
                     yAxis: 0
                 },
-                text: '80 tisíc až milion',
+                text: '45-59 let',
                 backgroundColor: colors[3]
             }, {
                 point: {
-                    x: 1,
-                    y: obec_hom[5][1],
+                    x: 0,
+                    y: vek_ciz[5][0],
                     xAxis: 0,
                     yAxis: 0
                 },
-                text: 'Praha',
+                text: 'nad 60 let',
                 backgroundColor: colors[4]
             }],
             labelOptions: {
-                x: 30,
+                x: -50,
                 y: 10,
                 borderWidth: 0.1,
                 borderRadius: 10,
-                borderColor: '#fffffe',
-                align: 'left'
+                borderColor: '#fffffd'
+            },
+            visible: false
+        }, {
+            labels: [{
+                point: {
+                    x: 0,
+                    y: vek_hom[1][0]+0.9,
+                    xAxis: 0,
+                    yAxis: 0
+                },
+                text: '15-19 let',
+                backgroundColor: colors[0]
+            }, {
+                point: {
+                    x: 0,
+                    y: vek_hom[2][0]+0.9,
+                    xAxis: 0,
+                    yAxis: 0
+                },
+                text: '20-29 let',
+                backgroundColor: colors[1]
+            }, {
+                point: {
+                    x: 0,
+                    y: vek_hom[3][0]-1.5,
+                    xAxis: 0,
+                    yAxis: 0
+                },
+                text: '30-44 let',
+                backgroundColor: colors[2]
+            }, {
+                point: {
+                    x: 0,
+                    y: vek_hom[4][0]-0.9,
+                    xAxis: 0,
+                    yAxis: 0
+                },
+                text: '45-59 let',
+                backgroundColor: colors[3]
+            }, {
+                point: {
+                    x: 0,
+                    y: vek_hom[5][0],
+                    xAxis: 0,
+                    yAxis: 0
+                },
+                text: 'nad 60 let',
+                backgroundColor: colors[4]
+            }],
+            labelOptions: {
+                x: -50,
+                y: 10,
+                borderWidth: 0.1,
+                borderRadius: 10,
+                borderColor: '#fffffe'
             },
             visible: false
         }],
         tooltip: {
             formatter: function() {
-                if (this.series.name == 'jiné náboženství, do 2 000 obyv.') {
-                    return this.x + ': <b>' + this.y + ' %</b> populace obcí do 2 000 obyvatel by u souseda vadilo <b>jiné náboženství</b>.'
-                } else if (this.series.name == 'jiné náboženství, 2 000 až 15 000 obyv.') {
-                    return this.x + ': <b>' + this.y + ' %</b> populace obcí od 2 000 do 15 000 obyvatel by u souseda vadilo <b>jiné náboženství</b>.'
-                } else if (this.series.name == 'jiné náboženství, 15 000 až 80 000 obyv.') {
-                    return this.x + ': <b>' + this.y + ' %</b> populace obcí od 15 000 do 80 000 obyvatel by u souseda vadilo <b>jiné náboženství</b>.'
-                } else if (this.series.name == 'jiné náboženství, 80 000 až milion obyv.') {
-                    return this.x + ': <b>' + this.y + ' %</b> populace obcí nad 80 000 obyvatel mimo Prahu by u souseda vadilo <b>jiné náboženství</b>.'
-                } else if (this.series.name == 'jiné náboženství, Praha') {
-                    return this.x + ': <b>' + this.y + ' %</b> Pražanů by u souseda vadilo <b>jiné náboženství</b>.'
-                } else if (this.series.name == 'jiná barva pleti, do 2 000 obyv.') {
-                    return this.x + ': <b>' + this.y + ' %</b> populace obcí do 2 000 obyvatel by u souseda vadila <b>jiná barva pleti</b>.'
-                } else if (this.series.name == 'jiná barva pleti, 2 000 až 15 000 obyv.') {
-                    return this.x + ': <b>' + this.y + ' %</b> populace obcí od 2 000 do 15 000 obyvatel by u souseda vadila <b>jiná barva pleti</b>.'
-                } else if (this.series.name == 'jiná barva pleti, 15 000 až 80 000 obyv.') {
-                    return this.x + ': <b>' + this.y + ' %</b> populace obcí od 15 000 do 80 000 obyvatel by u souseda vadila <b>jiná barva pleti</b>.'
-                } else if (this.series.name == 'jiná barva pleti, 80 000 až milion obyv.') {
-                    return this.x + ': <b>' + this.y + ' %</b> populace obcí nad 80 000 obyvatel mimo Prahu by u souseda vadila <b>jiná barva pleti</b>.'
-                } else if (this.series.name == 'jiná barva pleti, Praha') {
-                    return this.x + ': <b>' + this.y + ' %</b> Pražanů by u souseda vadila <b>jiné náboženství</b>.'
-                } else if (this.series.name == 'cizinec, do 2 000 obyv.') {
-                    return this.x + ': <b>' + this.y + ' %</b> populace obcí do 2 000 obyvatel by vadil soused <b>cizinec</b>.'
-                } else if (this.series.name == 'cizinec, 2 000 až 15 000 obyv.') {
-                    return this.x + ': <b>' + this.y + ' %</b> populace obcí od 2 000 do 15 000 obyvatel by vadil soused <b>cizinec</b>.'
-                } else if (this.series.name == 'cizinec, 15 000 až 80 000 obyv.') {
-                    return this.x + ': <b>' + this.y + ' %</b> populace obcí od 15 000 do 80 000 obyvatel by vadil soused <b>cizinec</b>.'
-                } else if (this.series.name == 'cizinec, 80 000 až milion obyv.') {
-                    return this.x + ': <b>' + this.y + ' %</b> populace obcí nad 80 000 obyvatel mimo Prahu by vadil soused <b>cizinec</b>.'
-                } else if (this.series.name == 'cizinec, Praha') {
-                    return this.x + ': <b>' + this.y + ' %</b> Pražanů by vadil soused <b>cizinec</b>.'
-                } else if (this.series.name == 'homosexuál, do 2 000 obyv.') {
-                    return this.x + ': <b>' + this.y + ' %</b> populace obcí do 2 000 obyvatel by vadil soused <b>homosexuál</b>.'
-                } else if (this.series.name == 'homosexuál, 2 000 až 15 000 obyv.') {
-                    return this.x + ': <b>' + this.y + ' %</b> populace obcí od 2 000 do 15 000 obyvatel by vadil soused <b>homosexuál</b>.'
-                } else if (this.series.name == 'homosexuál, 15 000 až 80 000 obyv.') {
-                    return this.x + ': <b>' + this.y + ' %</b> populace obcí od 15 000 do 80 000 obyvatel by vadil soused <b>homosexuál</b>.'
-                } else if (this.series.name == 'homosexuál, 80 000 až milion obyv.') {
-                    return this.x + ': <b>' + this.y + ' %</b> populace obcí nad 80 000 obyvatel mimo Prahu by vadil soused <b>homosexuál</b>.'
-                } else if (this.series.name == 'homosexuál, Praha') {
-                    return this.x + ': <b>' + this.y + ' %</b> Pražanů by vadil soused <b>homosexuál</b>.'
+                if (this.series.name == 'jiné náboženství, 15-19 let') {
+                    return this.x + ': <b>' + this.y + ' %</b> 15-19letých by u souseda vadilo <b>jiné náboženství</b>.'
+                } else if (this.series.name == 'jiné náboženství, 20-29 let') {
+                    return this.x + ': <b>' + this.y + ' %</b> 20-29letých by u souseda vadilo <b>jiné náboženství</b>.'
+                } else if (this.series.name == 'jiné náboženství, 30-44 let') {
+                    return this.x + ': <b>' + this.y + ' %</b> 30-44letých by u souseda vadilo <b>jiné náboženství</b>.'
+                } else if (this.series.name == 'jiné náboženství, 45-59 let') {
+                    return this.x + ': <b>' + this.y + ' %</b> 45-59letých by u souseda vadilo <b>jiné náboženství</b>.'
+                } else if (this.series.name == 'jiné náboženství, nad 60 let') {
+                    return this.x + ': <b>' + this.y + ' %</b> 60letých a starších by u souseda vadilo <b>jiné náboženství</b>.'
+                } else if (this.series.name == 'jiná barva pleti, 15-19 let') {
+                    return this.x + ': <b>' + this.y + ' %</b> 15-19letých by u souseda vadila <b>jiná barva pleti</b>.'
+                } else if (this.series.name == 'jiná barva pleti, 20-29 let') {
+                    return this.x + ': <b>' + this.y + ' %</b> 20-29letých by u souseda vadila <b>jiná barva pleti</b>.'
+                } else if (this.series.name == 'jiná barva pleti, 30-44 let') {
+                    return this.x + ': <b>' + this.y + ' %</b> 30-44letých by u souseda vadila <b>jiná barva pleti</b>.'
+                } else if (this.series.name == 'jiná barva pleti, 45-59 let') {
+                    return this.x + ': <b>' + this.y + ' %</b> 45-59letých by u souseda vadila <b>jiná barva pleti</b>.'
+                } else if (this.series.name == 'jiná barva pleti, nad 60 let') {
+                    return this.x + ': <b>' + this.y + ' %</b> 60letých a starších by u souseda vadila <b>jiná barva pleti</b>.'
+                } else if (this.series.name == 'cizinec, 15-19 let') {
+                    return this.x + ': <b>' + this.y + ' %</b> 15-19letých by vadil soused <b>cizinec</b>.'
+                } else if (this.series.name == 'cizinec, 20-29 let') {
+                    return this.x + ': <b>' + this.y + ' %</b> 20-29letých by vadil soused <b>cizinec</b>.'
+                } else if (this.series.name == 'cizinec, 30-44 let') {
+                    return this.x + ': <b>' + this.y + ' %</b> 30-44letých by vadil soused <b>cizinec</b>.'
+                } else if (this.series.name == 'cizinec, 45-59 let') {
+                    return this.x + ': <b>' + this.y + ' %</b> 45-59letých by vadil soused <b>cizinec</b>.'
+                } else if (this.series.name == 'cizinec, nad 60 let') {
+                    return this.x + ': <b>' + this.y + ' %</b> 60letých a starších by vadil soused <b>cizinec</b>.'
+                } else if (this.series.name == 'homosexuál, 15-19 let') {
+                    return this.x + ': <b>' + this.y + ' %</b> 15-19letých by vadil soused <b>homosexuál</b>.'
+                } else if (this.series.name == 'homosexuál, 20-29 let') {
+                    return this.x + ': <b>' + this.y + ' %</b> 20-29letých by vadil soused <b>homosexuál</b>.'
+                } else if (this.series.name == 'homosexuál, 30-44 let') {
+                    return this.x + ': <b>' + this.y + ' %</b> 30-44letých by vadil soused <b>homosexuál</b>.'
+                } else if (this.series.name == 'homosexuál, 45-59 let') {
+                    return this.x + ': <b>' + this.y + ' %</b> 45-59letých by vadil soused <b>homosexuál</b>.'
+                } else if (this.series.name == 'homosexuál, nad 60 let') {
+                    return this.x + ': <b>' + this.y + ' %</b> 60letých a starších by vadil soused <b>homosexuál</b>.'
                 } else return ''
             }
         },
@@ -365,211 +361,214 @@ $(function () {
             href : 'http://nesstar.soc.cas.cz/webview/',
             text : 'Zdroj: CVVM, Naše společnost'
         },
+        legend: {
+            symbolHeight: '0px'
+        },
         series: [{
             name: 'jiné náboženství',
-            data: obec_nab[0],
-            color: '#fff',
+            data: vek_nab[0],
             marker: {symbol: 'circle'},
+            color: '#000',
             visible: false
         }, {
-            name: 'jiné náboženství, do 2 000 obyv.',
-            data: obec_nab[1],
+            name: 'jiné náboženství, 15-19 let',
+            data: vek_nab[1],
             color: colors[0],
             marker: {symbol: 'circle'},
             showInLegend: false,
-            visible: false,
-            linkedTo: ':previous'
+            linkedTo: ':previous',
+            visible: false
         }, {
-            name: 'jiné náboženství, 2 000 až 15 000 obyv.',
-            data: obec_nab[2],
+            name: 'jiné náboženství, 20-29 let',
+            data: vek_nab[2],
             color: colors[1],
             marker: {symbol: 'circle'},
             showInLegend: false,
-            visible: false,
-            linkedTo: ':previous'
+            linkedTo: ':previous',
+            visible: false
         }, {
-            name: 'jiné náboženství, 15 000 až 80 000 obyv.',
-            data: obec_nab[3],
+            name: 'jiné náboženství, 30-44 let',
+            data: vek_nab[3],
             color: colors[2],
             marker: {symbol: 'circle'},
             showInLegend: false,
-            visible: false,
-            linkedTo: ':previous'
+            linkedTo: ':previous',
+            visible: false
         }, {
-            name: 'jiné náboženství, 80 000 až milion obyv.',
-            data: obec_nab[4],
+            name: 'jiné náboženství, 44-59 let',
+            data: vek_nab[4],
             color: colors[3],
             marker: {symbol: 'circle'},
             showInLegend: false,
-            visible: false,
-            linkedTo: ':previous'
+            linkedTo: ':previous',
+            visible: false
         }, {
-            name: 'jiné náboženství, Praha',
-            data: obec_nab[5],
+            name: 'jiné náboženství, nad 60 let',
+            data: vek_nab[5],
             color: colors[4],
             marker: {symbol: 'circle'},
             showInLegend: false,
-            visible: false,
-            linkedTo: ':previous'
+            linkedTo: ':previous',
+            visible: false
         }, {
             name: 'jiná barva pleti',
-            data: obec_plet[0],
-            color: '#fff',
+            data: vek_plet[0],
             marker: {symbol: 'circle'},
-            dashStyle: 'DashDot',
-            visible: false
+            color: '#000',
+            dashStyle: 'DashDot'
         }, {
-            name: 'jiná barva pleti, do 2 000 obyv.',
-            data: obec_plet[1],
+            name: 'jiná barva pleti, 15-19 let',
+            data: vek_plet[1],
             color: colors[0],
             marker: {symbol: 'circle'},
             showInLegend: false,
             linkedTo: ':previous',
-            dashStyle: 'DashDot',
-            visible: false
+            dashStyle: 'DashDot'
         }, {
-            name: 'jiná barva pleti, 2 000 až 15 000 obyv.',
-            data: obec_plet[2],
+            name: 'jiná barva pleti, 20-29 let',
+            data: vek_plet[2],
             color: colors[1],
             marker: {symbol: 'circle'},
             showInLegend: false,
             linkedTo: ':previous',
-            dashStyle: 'DashDot',
-            visible: false
+            dashStyle: 'DashDot'
         }, {
-            name: 'jiná barva pleti, 15 000 až 80 000 obyv.',
-            data: obec_plet[3],
+            name: 'jiná barva pleti, 30-44 let',
+            data: vek_plet[3],
             color: colors[2],
             marker: {symbol: 'circle'},
             showInLegend: false,
             linkedTo: ':previous',
-            dashStyle: 'DashDot',
-            visible: false
+            dashStyle: 'DashDot'
         }, {
-            name: 'jiná barva pleti, 80 000 až milion obyv.',
-            data: obec_plet[4],
+            name: 'jiná barva pleti, 44-59 let',
+            data: vek_plet[4],
             color: colors[3],
             marker: {symbol: 'circle'},
             showInLegend: false,
             linkedTo: ':previous',
-            dashStyle: 'DashDot',
-            visible: false
+            dashStyle: 'DashDot'
         }, {
-            name: 'jiná barva pleti, Praha',
-            data: obec_plet[5],
+            name: 'jiná barva pleti, nad 60 let',
+            data: vek_plet[5],
             color: colors[4],
             marker: {symbol: 'circle'},
             showInLegend: false,
             linkedTo: ':previous',
-            dashStyle: 'DashDot',
-            visible: false
+            dashStyle: 'DashDot'
         }, {
             name: 'cizinec',
-            data: obec_ciz[0],
-            color: '#fff',
+            data: vek_nab[0],
             marker: {symbol: 'circle'},
-            dashStyle: 'ShortDot'
+            color: '#000',
+            dashStyle: 'ShortDot',
+            visible: false
         }, {
-            name: 'cizinec, do 2 000 obyv.',
-            data: obec_ciz[1],
+            name: 'cizinec, 15-19 let',
+            data: vek_ciz[1],
             color: colors[0],
             marker: {symbol: 'circle'},
             showInLegend: false,
             linkedTo: ':previous',
+            visible: false,
             dashStyle: 'ShortDot'
         }, {
-            name: 'cizinec, 2 000 až 15 000 obyv.',
-            data: obec_ciz[2],
+            name: 'cizinec, 20-29 let',
+            data: vek_ciz[2],
             color: colors[1],
             marker: {symbol: 'circle'},
             showInLegend: false,
             linkedTo: ':previous',
+            visible: false,
             dashStyle: 'ShortDot'
         }, {
-            name: 'cizinec, 15 000 až 80 000 obyv.',
-            data: obec_ciz[3],
+            name: 'cizinec, 30-44 let',
+            data: vek_ciz[3],
             color: colors[2],
             marker: {symbol: 'circle'},
             showInLegend: false,
             linkedTo: ':previous',
+            visible: false,
             dashStyle: 'ShortDot'
         }, {
-            name: 'cizinec, 80 000 až milion obyv.',
-            data: obec_ciz[4],
+            name: 'cizinec, 44-59 let',
+            data: vek_ciz[4],
             color: colors[3],
             marker: {symbol: 'circle'},
             showInLegend: false,
             linkedTo: ':previous',
+            visible: false,
             dashStyle: 'ShortDot'
         }, {
-            name: 'cizinec, Praha',
-            data: obec_ciz[5],
+            name: 'cizinec, nad 60 let',
+            data: vek_ciz[5],
             color: colors[4],
             marker: {symbol: 'circle'},
             showInLegend: false,
             linkedTo: ':previous',
+            visible: false,
             dashStyle: 'ShortDot'
         }, {
             name: 'homosexuál',
-            data: obec_hom[0],
-            color: '#fff',
+            data: vek_hom[0],
             marker: {symbol: 'circle'},
-            dashStyle: 'Dash',
-            visible: false
+            color: '#000',
+            visible: false,
+            dashStyle: 'Dash'
         }, {
-            name: 'homosexuál, do 2 000 obyv.',
-            data: obec_hom[1],
+            name: 'homosexuál, 15-19 let',
+            data: vek_hom[1],
             color: colors[0],
             marker: {symbol: 'circle'},
             showInLegend: false,
             linkedTo: ':previous',
-            dashStyle: 'Dash',
-            visible: false
+            visible: false,
+            dashStyle: 'Dash'
         }, {
-            name: 'homosexuál, 2 000 až 15 000 obyv.',
-            data: obec_hom[2],
+            name: 'homosexuál, 20-29 let',
+            data: vek_hom[2],
             color: colors[1],
             marker: {symbol: 'circle'},
             showInLegend: false,
             linkedTo: ':previous',
-            dashStyle: 'Dash',
-            visible: false
+            visible: false,
+            dashStyle: 'Dash'
         }, {
-            name: 'homosexuál, 15 000 až 80 000 obyv.',
-            data: obec_hom[3],
+            name: 'homosexuál, 30-44 let',
+            data: vek_hom[3],
             color: colors[2],
             marker: {symbol: 'circle'},
             showInLegend: false,
             linkedTo: ':previous',
-            dashStyle: 'Dash',
-            visible: false
+            visible: false,
+            dashStyle: 'Dash'
         }, {
-            name: 'homosexuál, 80 000 až milion obyv.',
-            data: obec_hom[4],
+            name: 'homosexuál, 44-59 let',
+            data: vek_hom[4],
             color: colors[3],
             marker: {symbol: 'circle'},
             showInLegend: false,
             linkedTo: ':previous',
-            dashStyle: 'Dash',
-            visible: false
+            visible: false,
+            dashStyle: 'Dash'
         }, {
-            name: 'homosexuál, Praha',
-            data: obec_hom[5],
+            name: 'homosexuál, nad 60 let',
+            data: vek_hom[5],
             color: colors[4],
             marker: {symbol: 'circle'},
             showInLegend: false,
             linkedTo: ':previous',
-            dashStyle: 'Dash',
-            visible: false
+            visible: false,
+            dashStyle: 'Dash'
         }]
     });
 
-    })
+})
 });
 
 var popisek_nab = false,
-    popisek_plet = false,
-    popisek_ciz = true,
+    popisek_plet = true,
+    popisek_ciz = false,
     popisek_hom = false;
 
 $(document).click(function(event) {
