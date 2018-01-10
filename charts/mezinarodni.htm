@@ -15,19 +15,37 @@ body {
 
 		<script type="text/javascript">
 
-var colors = ['#1f77b4','#aec7e8','#ff7f0e','#ffbb78','#2ca02c','#98df8a','#d62728','#ff9896','#9467bd','#c5b0d5','#8c564b','#c49c94','#e377c2','#f7b6d2','#7f7f7f','#c7c7c7','#bcbd22','#dbdb8d','#17becf','#9edae5']
+var colors = ['#1f77b4', '#aec7e8', '#ff7f0e', '#ffbb78', '#2ca02c', '#98df8a', '#d62728', '#ff9896', '#9467bd', '#c5b0d5', '#8c564b', '#c49c94', '#e377c2', '#f7b6d2', '#7f7f7f', '#c7c7c7', '#bcbd22', '#dbdb8d', '#17becf', '#9edae5', '#393b79', '#5254a3', '#637939', '#8ca252', '#8c6d31', '#bd9e39', '#843c39', '#ad494a', '#7b4173', '#a55194']
 
 var mezinarodni = [
-  [56.9,30.7,30.6,22.4],
-  [51.2,23.1,16.6,15.4],
-  [50.7,23.4,16,9.1],
-  [38.7,11,15.2,9],
-  [33.4,25.1,17.5,12.2],
-  [31.5,30.9,23.2,17.5],
-  [30.2,18.9,15.4,11.1],
-  [27.2,26.2,11.6,4.6],
-  [25.5,7.6,4.3,3.4],
-  [22.3,11.5,3.7,3]
+  [38.0,26.2,14.5,6.2,6.7,5.4],
+  [80.9,49.5,19.5,18.1,54.9,21.2],
+  [67.4,56.9,30.7,30.2,23.3,22.4],
+  [47.7,38.4,13.1,6.8,5.7,4.7],
+  [72.7,45.4,33.9,32.2,48.7,24.6],
+  [66.7,50.7,23.4,16.0,11.9,9.1],
+  [35.8,25.5,7.6,4.3,5.7,3.4],
+  [60.2,25.1,17.5,13.3,51.8,12.7],
+  [41.7,50.1,22.7,14.1,19.1,10.9],
+  [45.0,62.8,22.7,16.1,21.7,15.6],
+  [44.7,46.3,36.0,24.4,40.5,16.8],
+  [75.9,68.7,47.0,28.6,67.2,14.6],
+  [79.5,41.2,28.6,20.9,43.3,14.0],
+  [39.5,24.1,16.8,13.3,18.2,12.3],
+  [57.0,38.7,11.0,15.2,29.5,9.0],
+  [59.3,32.2,31.6,34.1,21.1,25.6],
+  [59.9,27.2,26.2,11.6,17.1,4.6],
+  [67.5,30.2,18.9,15.4,10.8,11.1],
+  [71.6,33.4,25.1,17.5,52.7,12.2],
+  [43.0,44.5,14.8,7.9,27.7,12.3],
+  [60.3,31.5,30.9,23.2,23.7,17.5],
+  [66.7,45.6,22.9,20.8,59.3,20.8],
+  [39.8,37.3,16.9,15.4,31.3,10.1],
+  [72.9,51.2,23.1,16.6,34.1,15.4],
+  [46.9,39.1,29.3,28.5,34.4,28.9],
+  [31.4,26.1,12.9,4.2,5.4,4.0],
+  [45.7,22.2,15.8,6.4,6.3,5.6],
+  [50.3,33.8,12.9,14.9,10.8,5.8]
 ]
 
 $(function () {
@@ -55,7 +73,7 @@ $(function () {
             text: 'mezinárodní srovnání, 2008'
         },
         xAxis: {
-            categories: ['Rómové', 'muslimové', 'imigranti', 'jiná rasa']
+            categories: ['alkoholici', 'Romové', 'muslimové', 'imigranti', 'homosexuálové', 'jiná rasa']
         },
         yAxis: {
             title: {
@@ -68,8 +86,12 @@ $(function () {
         },
         tooltip: {
             formatter: function() {
-                if (this.x == 'Rómové') {
-                    return this.series.name + ': <b>' + this.y + ' %</b> by vadil soused <b>Róm</b>.'
+                if (this.x == 'alkoholici') {
+                    return this.series.name + ': <b>' + this.y + ' %</b> by vadil soused <b>alkoholik</b>.'
+                } else if (this.x == 'homosexuálové') {
+                    return this.series.name + ': <b>' + this.y + ' %</b> by vadil soused <b>homosexuál</b>.'
+                } else if (this.x == 'Romové') {
+                    return this.series.name + ': <b>' + this.y + ' %</b> by vadil soused <b>Rom</b>.'
                 } else if (this.x == 'muslimové') {
                     return this.series.name + ': <b>' + this.y + ' %</b> by vadil soused <b>muslim</b>.'
                 } else if (this.x == 'imigranti') {
@@ -84,54 +106,145 @@ $(function () {
             enabled: false
         },
         credits: {
-            href : 'http://nesstar.soc.cas.cz/webview/index/en/nesstar/-SDA.c.nesstar/-esky.d.1/V-zkumy-hodnot.d.53/Evropsk-v-zkum-hodnot-spojen-data/fStudy/CSDA00087',
-            text : 'Zdroj: Výzkum evropských hodnot 2008'
+            href : 'http://www.europeanvaluesstudy.eu',
+            text : 'Zdroj: European Values Study'
         },
         series: [{
             name: 'Česko',
-            data: mezinarodni[0],
-            color: colors[0]
-        }, {
-            name: 'Slovensko',
-            data: mezinarodni[1],
-            color: colors[1]
-        }, {
-            name: 'Finsko',
             data: mezinarodni[2],
-            color: colors[2],
+            color: colors[2]
+        }, {
+            name: 'Belgie',
+            data: mezinarodni[0],
+            color: colors[0],
             visible: false
         }, {
-            name: 'Maďarsko',
+            name: 'Bulharsko',
+            data: mezinarodni[1],
+            color: colors[1],
+            visible: false
+        }, {
+            name: 'Dánsko',
             data: mezinarodni[3],
             color: colors[3],
             visible: false
         }, {
-            name: 'Polsko',
+            name: 'Estonsko',
             data: mezinarodni[4],
             color: colors[4],
             visible: false
         }, {
-            name: 'Rakousko',
+            name: 'Finsko',
             data: mezinarodni[5],
             color: colors[5],
             visible: false
         }, {
-            name: 'Holandsko',
+            name: 'Francie',
             data: mezinarodni[6],
-            color: colors[6],
+            color: colors[6]
+        }, {
+            name: 'Chorvatsko',
+            data: mezinarodni[7],
+            color: colors[7],
+            visible: false
+        }, {
+            name: 'Irsko',
+            data: mezinarodni[8],
+            color: colors[8],
+            visible: false
+        }, {
+            name: 'Itálie',
+            data: mezinarodni[9],
+            color: colors[9],
+            visible: false
+        }, {
+            name: 'Kypr',
+            data: mezinarodni[10],
+            color: colors[10],
+            visible: false
+        }, {
+            name: 'Litva',
+            data: mezinarodni[11],
+            color: colors[11]
+        }, {
+            name: 'Lotyšsko',
+            data: mezinarodni[12],
+            color: colors[12],
+            visible: false
+        }, {
+            name: 'Lucembursko',
+            data: mezinarodni[13],
+            color: colors[13],
+            visible: false
+        }, {
+            name: 'Maďarsko',
+            data: mezinarodni[14],
+            color: colors[14],
+            visible: false
+        }, {
+            name: 'Malta',
+            data: mezinarodni[15],
+            color: colors[15],
             visible: false
         }, {
             name: 'Německo',
-            data: mezinarodni[7],
-            color: colors[7]
+            data: mezinarodni[16],
+            color: colors[16],
+            visible: false
         }, {
-            name: 'Francie',
-            data: mezinarodni[8],
-            color: colors[8]
+            name: 'Nizozemsko',
+            data: mezinarodni[17],
+            color: colors[17],
+            visible: false
         }, {
-            name: 'Švýcarsko',
-            data: mezinarodni[9],
-            color: colors[9],
+            name: 'Polsko',
+            data: mezinarodni[18],
+            color: colors[18],
+            visible: false
+        }, {
+            name: 'Portugalsko',
+            data: mezinarodni[19],
+            color: colors[19],
+            visible: false
+        }, {
+            name: 'Rakousko',
+            data: mezinarodni[20],
+            color: colors[20],
+            visible: false
+        }, {
+            name: 'Rumunsko',
+            data: mezinarodni[21],
+            color: colors[21],
+            visible: false
+        }, {
+            name: 'Řecko',
+            data: mezinarodni[22],
+            color: colors[22],
+            visible: false
+        }, {
+            name: 'Slovensko',
+            data: mezinarodni[23],
+            color: colors[23],
+            visible: false
+        }, {
+            name: 'Slovinsko',
+            data: mezinarodni[24],
+            color: colors[24],
+            visible: false
+        }, {
+            name: 'Španělsko',
+            data: mezinarodni[25],
+            color: colors[25],
+            visible: false
+        }, {
+            name: 'Švédsko',
+            data: mezinarodni[26],
+            color: colors[26],
+            visible: false
+        }, {
+            name: 'Velká Británie',
+            data: mezinarodni[27],
+            color: colors[27],
             visible: false
         }]
     });
