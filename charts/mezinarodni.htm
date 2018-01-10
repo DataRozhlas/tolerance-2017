@@ -1,0 +1,153 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>Highcharts Example</title>
+
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<style type="text/css">
+
+body {
+    margin: 0px;
+}
+
+		</style>
+
+		<script type="text/javascript">
+
+var colors = ['#1f77b4','#aec7e8','#ff7f0e','#ffbb78','#2ca02c','#98df8a','#d62728','#ff9896','#9467bd','#c5b0d5','#8c564b','#c49c94','#e377c2','#f7b6d2','#7f7f7f','#c7c7c7','#bcbd22','#dbdb8d','#17becf','#9edae5']
+
+var mezinarodni = [
+  [56.9,30.7,30.6,22.4],
+  [51.2,23.1,16.6,15.4],
+  [50.7,23.4,16,9.1],
+  [38.7,11,15.2,9],
+  [33.4,25.1,17.5,12.2],
+  [31.5,30.9,23.2,17.5],
+  [30.2,18.9,15.4,11.1],
+  [27.2,26.2,11.6,4.6],
+  [25.5,7.6,4.3,3.4],
+  [22.3,11.5,3.7,3]
+]
+
+$(function () {
+
+    Highcharts.setOptions({
+            lang: {
+                months: ['leden', 'únor', 'březen', 'duben', 'květen', 'červen', 'červenec', 'srpen', 'září', 'říjen', 'listopad', 'prosinec'],
+                weekdays: ['neděle', 'pondělí', 'úterý', 'středa', 'čtvrtek', 'pátek', 'sobota'],
+                shortMonths: ['leden', 'únor', 'březen', 'duben', 'květen', 'červen', 'červenec', 'srpen', 'září', 'říjen', 'listopad', 'prosinec'],
+                thousandsSep: '',
+                decimalPoint:',',
+                rangeSelectorZoom: 'Zobrazit'
+            }
+        });
+
+$(function () {
+    $('#container').highcharts({
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Vedle koho byste nebydleli?'
+        },
+        subtitle: {
+            text: 'mezinárodní srovnání, 2008'
+        },
+        xAxis: {
+            categories: ['Rómové', 'muslimové', 'imigranti', 'jiná rasa']
+        },
+        yAxis: {
+            title: {
+                text: 'podíl odpovědí "nechci za souseda"'
+            },
+            labels: {
+                format: '{value} %'
+            },
+            min: 0
+        },
+        tooltip: {
+            formatter: function() {
+                if (this.x == 'Rómové') {
+                    return this.series.name + ': <b>' + this.y + ' %</b> by vadil soused <b>Róm</b>.'
+                } else if (this.x == 'muslimové') {
+                    return this.series.name + ': <b>' + this.y + ' %</b> by vadil soused <b>muslim</b>.'
+                } else if (this.x == 'imigranti') {
+                    return this.series.name + ': <b>' + this.y + ' %</b> by vadil soused <b>imigrant</b>.'
+                } else {
+                    return this.series.name + ': <b>' + this.y + ' %</b> by vadil soused <b>jiné rasy</b>.'
+                }
+            },
+            crosshairs: true
+        },
+        exporting: {
+            enabled: false
+        },
+        credits: {
+            href : 'http://nesstar.soc.cas.cz/webview/index/en/nesstar/-SDA.c.nesstar/-esky.d.1/V-zkumy-hodnot.d.53/Evropsk-v-zkum-hodnot-spojen-data/fStudy/CSDA00087',
+            text : 'Zdroj: Výzkum evropských hodnot 2008'
+        },
+        series: [{
+            name: 'Česko',
+            data: mezinarodni[0],
+            color: colors[0]
+        }, {
+            name: 'Slovensko',
+            data: mezinarodni[1],
+            color: colors[1]
+        }, {
+            name: 'Finsko',
+            data: mezinarodni[2],
+            color: colors[2],
+            visible: false
+        }, {
+            name: 'Maďarsko',
+            data: mezinarodni[3],
+            color: colors[3],
+            visible: false
+        }, {
+            name: 'Polsko',
+            data: mezinarodni[4],
+            color: colors[4],
+            visible: false
+        }, {
+            name: 'Rakousko',
+            data: mezinarodni[5],
+            color: colors[5],
+            visible: false
+        }, {
+            name: 'Holandsko',
+            data: mezinarodni[6],
+            color: colors[6],
+            visible: false
+        }, {
+            name: 'Německo',
+            data: mezinarodni[7],
+            color: colors[7]
+        }, {
+            name: 'Francie',
+            data: mezinarodni[8],
+            color: colors[8]
+        }, {
+            name: 'Švýcarsko',
+            data: mezinarodni[9],
+            color: colors[9],
+            visible: false
+        }]
+    });
+
+    })
+});
+
+</script>
+</head>
+
+<body>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/highcharts-more.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+    <div id="container" style="width: 100vw; height: 100vh;"></div>
+</body>
+
+</html>
